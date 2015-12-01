@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑";
+}
+html {
+  background: #e9833f;
+}
+#stage {
+  padding: 0 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#again {
+  width: 510px;
+  height: 400px;
+  background: url(../images/again.gif) no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -254px;
+  display: none;
+  z-index: 999;
+}
+#finalScore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /*margin-top: -100px;*/
+  /*margin-left: -60px;*/
+  transform: rotate(-5deg) translateX(-30%) translateY(-60%);
+  color: #f6fc57;
+  font-size: 120px;
+  text-shadow: 5px 5px 5px #673516;
+}
+#playagain {
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  background: url(../images/playagain.png) no-repeat;
+  width: 216px;
+  height: 66px;
+}
+#scoreDiv, #timer {
+  width: 170px;
+  height: 54px;
+  position: absolute;
+  bottom: 40px;
+  z-index: 9999;
+  font-size: 36px;
+  text-align: center;
+  color: #f9e896;
+  line-height: 50px;
+  text-shadow: #673516 3px 3px 0px;
+}
+#scoreDiv {
+  background: url(../images/score.png) no-repeat;
+  right: 0;
+}
+#timer {
+  background: url(../images/timer.gif) no-repeat;
+  left: 0;
+}
+#map {
+  position: absolute;  /*top: 50%;*/
+
+  /*top: 300px;*/
+  top: 20%;
+  left: 50%;
+  list-style: none;
+}
+li {
+  float: left;
+  background: url(../images/hole.gif) no-repeat;  /*background-size:contain;*/
+}
+.mouse1, .mouse2, .mouse3 {
+  width: 150px;
+  height: 180px;
+  background: url(../images/mouse.gif) no-repeat;
+  position: relative;
+  top: -50px;
+  left: 20px;
+}
