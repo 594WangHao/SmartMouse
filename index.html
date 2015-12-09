@@ -20,14 +20,20 @@
 
 <!-- 游戏主体 -->
 <div id="stage">
+	<audio id="music" src="source/Diana Boncheva - Beethoven Virus.mp3" autobuffer autoloop loop></audio>
   <ul id="map"></ul>
+
 </div>
 
 <span id="scoreDiv">0”</span>
-<span id="timer">30s</span>
+<span id="timer"></span>
 
 <!-- 底部图片 -->
-<img id="start"src="images/start.gif"style="width: 100%;position: absolute;bottom: 0;">
+<div class="start">
+	<img id="start" src="images/start.gif" height="87" width="156">
+</div>
+
+<img src="images/footer.gif" height="403"style="width: 100%;position: absolute;bottom: 0;">
 
 <script src="js/jquery-1.11.3.min.js"type="text/javascript"></script>
 <script src="js/game.js" type="text/javascript"></script>
