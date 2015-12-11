@@ -7,6 +7,18 @@
 html {
   background: #e9833f;
 }
+#top,#footer{
+  position: absolute;
+  width: 100%;
+}
+#top{
+  top: 0;
+  height:10%;
+}
+#footer{
+  bottom: 0;
+  height: 32%;
+}
 #stage {
   padding: 0 50px;
   position: absolute;
@@ -19,6 +31,7 @@ html {
   width: 510px;
   height: 400px;
   background: url(../images/again.gif) no-repeat;
+  background-size: 100% 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,16 +56,17 @@ html {
   right: 0;
   bottom: 50px;
   background: url(../images/playagain.png) no-repeat;
+  background-size: 100% 100%;
   width: 216px;
   height: 66px;
 }
 #scoreDiv, #timer {
-  width: 170px;
-  height: 54px;
+  width: 24%;
+  height: 4.2%;
   position: absolute;
-  bottom: 40px;
+  bottom: 2%;
   z-index: 9999;
-  font-size: 36px;
+  font-size: 16px;
   text-align: center;
   color: #f9e896;
   line-height: 50px;
@@ -60,6 +74,7 @@ html {
 }
 #scoreDiv {
   background: url(../images/score.png) no-repeat;
+  background-size: 100% 100%;
   right: 0;
 }
 #timer {
@@ -67,9 +82,7 @@ html {
   left: 0;
 }
 #map {
-  position: absolute;  /*top: 50%;*/
-
-  /*top: 300px;*/
+  position: absolute;
   top: 20%;
   left: 50%;
   list-style: none;
@@ -77,9 +90,9 @@ html {
 .start{
   position: absolute;
   left: 50%;
-  width: 200px;
+  width: 28%;
   margin-left:-100px;
-  bottom: 70px;
+  bottom: 5.4%;
   z-index: 999;
   text-align: center;
   color:#f9e896;
@@ -90,12 +103,11 @@ html {
 li {
   float: left;
   background: url(../images/hole.gif) no-repeat;
-   /*background-size:contain;*/
+  background-size: 100% 100%;
 }
 .mouse1, .mouse2, .mouse3 {
-  width: 150px;
-  height: 180px;
   background: url(../images/mouse.gif) no-repeat;
+  background-size: 100% 100%;
   position: relative;
   top: -50px;
   left: 20px;

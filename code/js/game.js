@@ -50,7 +50,7 @@ var mouse = (function() {
     var margin = 20, // 每个方格之间的间距
       stageWdith = stage.width(), // 整体背景的宽度
       liWidth = parseInt((stageWdith - margin * 2) / 3), // 每个li方格的宽度
-      liHeight = 170, // 每个li方格的高度
+      liHeight = 0.8 * liWidth, // 每个li方格的高度
       mapWidth = liWidth * 3 + margin * 2, // 地图div的宽度
       mapHeight = liHeight * 3 + margin * 2;  // 地图div的高度
 
