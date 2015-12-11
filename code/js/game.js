@@ -13,13 +13,14 @@ $(function(){
 var mouse = (function() {
     // 采用单体模式设计游戏
     var stage = $("#stage"), // 整体背景
-      map = $("#map"), // 地图div
+      map = $("#map"), // 地图ul
       scoreDiv = $("#scoreDiv") // 分数标签
       again = $("#again"),  // 再来一次
       timerSpan = $("#timer")  // 时间标签
       interval = null, // 定时器
       timer = (1*60)*1000, // 游戏时长
       oScore = 0, // 分数
+      num = 0,    // 次数
       bool = false,
       song =  [     // 音乐节奏
                 320, 580, 820, 800, 720, 620, 900, 810, 740, 560,
@@ -50,15 +51,13 @@ var mouse = (function() {
     var margin = 20, // 每个方格之间的间距
       stageWdith = stage.width(), // 整体背景的宽度
       liWidth = parseInt((stageWdith - margin * 2) / 3), // 每个li方格的宽度
-      liHeight = 0.8 * liWidth, // 每个li方格的高度
+      liHeight = $(window).height() * 0.14, // 每个li方格的高度
       mapWidth = liWidth * 3 + margin * 2, // 地图div的宽度
       mapHeight = liHeight * 3 + margin * 2;  // 地图div的高度
 
     function init() {
       // 游戏初始化
       // 创建地图
-
-
       createMap();
 
       // 播放音乐
@@ -80,20 +79,18 @@ var mouse = (function() {
     function createMap() {
       // 隐藏再来一次窗口
       again.hide();
-      oScore = 0;
+      oScore = 0;   // 分数清零
+      num = 0;    // 次数清零
+
       // 倒计时标签
       timerSpan.html( timer/1000 + "s")
       var ili = $("li");
       for (var i = 0; i < ili.length; i++) {
         ili.eq(i).remove();
       };
-      // 创建地图
-      map.css("width", mapWidth).css("height", mapHeight)
-        .css("margin-left", -mapWidth / 2).css("padding-left", (liWidth - 192) / 2)
-        // .css("margin-top", -mapHeight/2);
         // 九个方格的地图，适应屏幕宽度
       for (var i = 0; i < 9; i++) {
-        var mapLi = $("<li></li>");
+        var mapLi = $("<li></li>").append($("<div></div>"));
         mapLi.css("width", liWidth).css("height", liHeight)
           .css("margin-left", margin).css("margin-top", margin)
           .appendTo(map);
@@ -117,7 +114,7 @@ var mouse = (function() {
 
     function createTimer (timer) {
       // 创建倒计时
-      if (!bool) {
+
         timerSpan.html(timer/1000 + "s");
         interval = setInterval(function(){
           if (timer > 0) {
@@ -126,8 +123,8 @@ var mouse = (function() {
             timerSpan.html(timer/1000 + "s");
           };
         },1000)
-        bool = true;
-      };
+
+
     }
 
     function mouseAppear() {
@@ -144,9 +141,10 @@ var mouse = (function() {
         // 随机指定地鼠出现的方格
         var iLi = Math.floor(Math.random() * 9);
         var mouse = mouses[iMouse];
-        $("li div").remove();
-        $("<div></div>").addClass(mouse.style).attr("score", mouse.score)
-            .appendTo(li.eq(iLi));
+
+        $("li div").removeClass();
+        $("li").eq(iLi).children("div")
+          .addClass(mouse.style).attr("score", mouse.score)
 
         // 节奏点递增
         index++;
@@ -161,20 +159,22 @@ var mouse = (function() {
 
     function getScore() {
       // 点击地鼠得分
-      var li = $("li")
-      li.click(function() {
+      var innerDiv = $("li div")
+      innerDiv.bind("touchstart",function() {
         var This = $(this);
-        var index = This.index();
 
         // 点击事件判断
-        if (li.eq(index).children().length == 0) {
-          oScore += 0
-        } else {
+        if (This.hasClass("")) {
           // 根据地鼠种类判断相应得分
-          oScore += parseInt(li.eq(index).children().attr("score"));
+          // debugger
+          oScore += 0;
+        } else {
+          oScore += parseInt(This.attr("score"));
+          num += 1;
         }
-        scoreDiv.html(oScore + "次");
-        $(".start").css("padding-left",30).html(oScore + "”")
+        scoreDiv.html(num + "次");
+        $(".start").html(oScore + "”")
+          // .css("padding-left","0.5em")
       })
     }
 
